@@ -26,6 +26,7 @@ import { setMaxListeners } from 'events'
 import { abortableDuplex } from 'abortable-iterator'
 import type { Multiaddr } from '@multiformats/multiaddr'
 import type { Components } from '../components.js'
+import type { Startable } from '@libp2p/interfaces/startable'
 
 const log = logger('libp2p:circuit')
 
@@ -42,11 +43,12 @@ interface ConnectOptions {
   ma: Multiaddr
   disconnectOnFailure: boolean
 }
-export class Circuit implements Transport {
+export class Circuit implements Transport, Startable {
   private handler?: ConnectionHandler
   private readonly components: Components;
   private readonly reservationStore: ReservationStore
   private readonly _init: RelayConfig
+  private readonly _started: boolean
 
   constructor (components: Components, options: RelayConfig) {
     this.components = components
@@ -78,12 +80,22 @@ export class Circuit implements Transport {
       .catch(err => {
         log.error(err)
       })
+    this._started = false
+  }
+
+  isStarted (): boolean {
+    return this._started
+  }
+
+  async start () {
+    this.reservationStore.start()
   }
 
   async stop () {
     await this.components.registrar.unhandle(RELAY_V1_CODEC)
     await this.components.registrar.unhandle(RELAY_V2_HOP_CODEC)
     await this.components.registrar.unhandle(RELAY_V2_STOP_CODEC)
+    this.reservationStore.stop()
   }
 
   hopEnabled () {

@@ -42,4 +42,22 @@ describe('Circuit v2 - reservation store', function () {
     expect(await store.hasReservation(peer)).to.be.false()
     await store.removeReservation(peer)
   })
+
+  it('should remove stale reservations', async function () {
+    const store = new ReservationStore(1, 100)
+    try {
+      store.start()
+      const peer = await createPeerId()
+      // create an expired reservation
+      const expire = new Date()
+      expire.setSeconds(0)
+      store.reservations.set(peer.toString(), { addr: multiaddr(), expire })
+      expect(await store.hasReservation(peer)).to.be.true()
+      // wait for clear
+      await new Promise(res => setTimeout(res, 100))
+      expect(await store.hasReservation(peer)).to.be.false()
+    } finally {
+      store.stop()
+    }
+  })
 })
