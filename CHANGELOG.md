@@ -10,6 +10,22 @@
 
 
 
+## [0.42.0](https://www.github.com/little-bear-labs/js-libp2p/compare/v0.41.0...v0.42.0) (2022-12-21)
+
+
+### ⚠ BREAKING CHANGES
+
+* the `FaultTolerance` enum should now be imported from `@libp2p/interface-transport`
+* the connection manager and registrar are internal types and as such not part of the libp2p interface, instead use the methods exposed on the root libp2p type for obtaining connections and protocols (see the upgrade guide)
+
+### Bug Fixes
+
+* add getProtocols method ([#1523](https://www.github.com/little-bear-labs/js-libp2p/issues/1523)) ([57a56aa](https://www.github.com/little-bear-labs/js-libp2p/commit/57a56aa9d32f81066667ad6641fda5980df8e1c3))
+* forward connection manager events on and update types ([#1524](https://www.github.com/little-bear-labs/js-libp2p/issues/1524)) ([58cc480](https://www.github.com/little-bear-labs/js-libp2p/commit/58cc4804827cae92a2fff3babb1201099577f671))
+* remove transport manager from exports map ([#1525](https://www.github.com/little-bear-labs/js-libp2p/issues/1525)) ([d77405c](https://www.github.com/little-bear-labs/js-libp2p/commit/d77405c52f331a85325c0d24ef86874b2f5c4cd4))
+* revert config changes from [#1520](https://www.github.com/little-bear-labs/js-libp2p/issues/1520) ([#1522](https://www.github.com/little-bear-labs/js-libp2p/issues/1522)) ([2fa2893](https://www.github.com/little-bear-labs/js-libp2p/commit/2fa28931025ffb93d985dad1269165f81709c048))
+* update docs ([#1520](https://www.github.com/little-bear-labs/js-libp2p/issues/1520)) ([3e53c19](https://www.github.com/little-bear-labs/js-libp2p/commit/3e53c199349ab99deeb745baff92c3aaa7647ca8))
+
 ## [0.41.0](https://www.github.com/libp2p/js-libp2p/compare/v0.40.0...v0.41.0) (2022-12-06)
 
 
