@@ -119,7 +119,7 @@
     "@libp2p/peer-collections": "^2.0.0",
     "@libp2p/peer-id": "^1.1.15",
     "@libp2p/peer-id-factory": "^1.0.18",
-    "@libp2p/peer-record": "^4.0.3",
+    "@libp2p/peer-record": "^5.0.0",
     "@libp2p/peer-store": "^5.0.0",
     "@libp2p/tracked-map": "^3.0.0",
     "@libp2p/utils": "^3.0.2",
