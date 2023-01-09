@@ -173,7 +173,7 @@
     "@libp2p/interface-compliance-tests": "^3.0.2",
     "@libp2p/interface-connection-compliance-tests": "^2.0.3",
     "@libp2p/interface-connection-encrypter-compliance-tests": "^3.0.0",
-    "@libp2p/interface-mocks": "^8.0.0",
+    "@libp2p/interface-mocks": "^9.0.0",
     "@libp2p/interop": "^3.0.1",
     "@libp2p/kad-dht": "^6.0.0",
     "@libp2p/mdns": "^5.0.0",
