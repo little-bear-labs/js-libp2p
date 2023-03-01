@@ -120,7 +120,7 @@
     "@libp2p/peer-id": "^1.1.15",
     "@libp2p/peer-id-factory": "^1.0.18",
     "@libp2p/peer-record": "^4.0.3",
-    "@libp2p/peer-store": "^5.0.0",
+    "@libp2p/peer-store": "^6.0.1",
     "@libp2p/tracked-map": "^3.0.0",
     "@libp2p/utils": "^3.0.2",
     "@multiformats/mafmt": "^11.0.2",
